@@ -3,7 +3,7 @@ spring:
     name: ocare-backend
 
   datasource:
-    url: jdbc:mysql://localhost:3306/ocare_db?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3307/ocare_db?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -20,7 +20,16 @@ spring:
   data:
     redis:
       host: localhost
-      port: 6379
+      port: 6380
+
+  kafka:
+    bootstrap-servers: localhost:9093
+    consumer:
+      group-id: ocare-group
+      auto-offset-reset: latest
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 logging:
   level:
