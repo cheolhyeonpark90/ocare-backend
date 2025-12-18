@@ -1,0 +1,41 @@
+### Step 1: Start your Spring Boot application first.
+# You can run './gradlew bootRun' in your terminal.
+
+
+### Step 2: Sign up a new user.
+# Click the 'Run' icon to send this request.
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+  "email": "test-user@example.com",
+  "password": "password123",
+  "name": "Test User",
+  "nickname": "Tester"
+}
+
+### Step 3: Try to access the protected endpoint WITHOUT a token.
+# This should fail with a 401 Unauthorized or 403 Forbidden error.
+GET http://localhost:8080/api/test
+
+
+### Step 4: Log in to get the access token.
+# The '> {% ... %}' script will save the access token to a global variable.
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "test-user@example.com",
+  "password": "password123"
+}
+> {% client.global.set("accessToken", response.body.accessToken); %}
+
+
+### Step 5: Access the protected endpoint WITH the token.
+# This should now succeed with a 200 OK and a welcome message.
+# The '{{accessToken}}' variable is automatically replaced by IntelliJ.
+GET http://localhost:8080/api/test
+Authorization: Bearer {{accessToken}}
+Accept: application/json
+

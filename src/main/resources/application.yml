@@ -34,3 +34,6 @@ spring:
 logging:
   level:
     org.hibernate.SQL: debug
+
+jwt:
+  secret: SuperSecretKeyForOcareBackendApplication
