@@ -1,0 +1,76 @@
+### 1. 회원가입 (Register)
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+  "email": "stats-test@example.com",
+  "password": "password123",
+  "name": "Stats Tester"
+}
+
+### 2. 로그인 및 토큰 발급 (Login)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "stats-test@example.com",
+  "password": "password123"
+}
+
+> {%
+    client.global.set("auth_token", response.body.accessToken);
+    client.log("Token: " + response.body.accessToken);
+%}
+
+### 3. 데이터 주입 - 1일차 (Inject Data Day 1)
+# 2024-12-01: 5000 steps, 3km, 200kcal
+POST http://localhost:8080/api/health/logs
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "recordkey": "stats-test-user",
+  "data": {
+    "entries": [
+      {
+        "period": { "from": "2024-12-01 10:00:00" },
+        "steps": 5000,
+        "distance": { "value": 3.0, "unit": "km" },
+        "calories": { "value": 200, "unit": "kcal" }
+      }
+    ]
+  }
+}
+
+### 4. 데이터 주입 - 2일차 (Inject Data Day 2)
+# 2024-12-02: 7000 steps, 5km, 350kcal
+POST http://localhost:8080/api/health/logs
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "recordkey": "stats-test-user",
+  "data": {
+    "entries": [
+      {
+        "period": { "from": "2024-12-02 10:00:00" },
+        "steps": 7000,
+        "distance": { "value": 5.0, "unit": "km" },
+        "calories": { "value": 350, "unit": "kcal" }
+      }
+    ]
+  }
+}
+
+### 5. 일별 통계 조회 (Get Daily Stats)
+# Expected:
+# 2024-12-01: 5000
+# 2024-12-02: 7000
+GET http://localhost:8080/api/stats/daily/7836887b-b12a-440f-af0f-851546504b13
+Authorization: Bearer {{auth_token}}
+
+### 6. 월별 통계 조회 (Get Monthly Stats)
+# Expected:
+# 2024-12: 12000 (5000 + 7000)
+GET http://localhost:8080/api/stats/monthly/7836887b-b12a-440f-af0f-851546504b13
+Authorization: Bearer {{auth_token}}
