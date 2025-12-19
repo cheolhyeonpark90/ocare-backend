@@ -1,103 +1,64 @@
 package com.ocare.ocarebackend.domain.health.service;
 
-import com.ocare.ocarebackend.domain.health.HealthLog;
-import com.ocare.ocarebackend.domain.health.HealthLogRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ocare.ocarebackend.domain.health.dto.HealthLogMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
+import java.util.List;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class HealthLogService {
 
-    private final HealthLogRepository healthLogRepository;
-    private final org.springframework.data.redis.core.StringRedisTemplate redisTemplate;
+    private final HealthLogPersister healthLogPersister;
+    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final ObjectMapper objectMapper;
+    private static final String DLT_TOPIC = "health-log-topic-v1.DLT";
 
-    @Transactional
-    public void saveHealthLog(HealthLogMessage msg) {
-        Double normalizedDistance = normalizeDistance(msg.getDistanceValue(), msg.getDistanceUnit());
-        Double normalizedCalories = normalizeCalories(msg.getCaloriesValue(), msg.getCaloriesUnit());
-
-        Optional<HealthLog> existingLog = healthLogRepository.findByRecordKeyAndMeasuredAt(msg.getRecordKey(),
-                msg.getMeasuredAt());
-
-        int stepsDelta;
-        double distanceDelta;
-        double caloriesDelta;
-
-        if (existingLog.isPresent()) {
-            HealthLog log = existingLog.get();
-            stepsDelta = msg.getSteps() - (log.getSteps() != null ? log.getSteps() : 0);
-            distanceDelta = normalizedDistance - (log.getDistance() != null ? log.getDistance() : 0.0);
-            caloriesDelta = normalizedCalories - (log.getCalories() != null ? log.getCalories() : 0.0);
-            log.update(msg.getSteps(), normalizedDistance, normalizedCalories);
-        } else {
-            HealthLog newLog = HealthLog.builder()
-                    .recordKey(msg.getRecordKey())
-                    .measuredAt(msg.getMeasuredAt())
-                    .steps(msg.getSteps())
-                    .distance(normalizedDistance)
-                    .calories(normalizedCalories)
-                    .build();
-            healthLogRepository.save(newLog);
-
-            stepsDelta = msg.getSteps() != null ? msg.getSteps() : 0;
-            distanceDelta = normalizedDistance;
-            caloriesDelta = normalizedCalories;
-        }
-
-        updateRedisStats(msg.getRecordKey(), msg.getMeasuredAt(), stepsDelta, distanceDelta, caloriesDelta);
-    }
-
-    private void updateRedisStats(String recordKey, java.time.LocalDateTime date, int stepsDelta, double distanceDelta,
-            double caloriesDelta) {
-        String dateStr = date.toLocalDate().toString(); // yyyy-MM-dd
-        String monthStr = date.format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM"));
-
-        // 캐시 정합성 유지: Full Cache가 존재할 때만 델타 업데이트 수행
-
-        updateIfKeyExists("stats:daily:" + recordKey + ":steps", dateStr, stepsDelta);
-        updateIfKeyExistsFloat("stats:daily:" + recordKey + ":distance", dateStr, distanceDelta);
-        updateIfKeyExistsFloat("stats:daily:" + recordKey + ":calories", dateStr, caloriesDelta);
-
-        // Update Monthly Stats
-        updateIfKeyExists("stats:monthly:" + recordKey + ":steps", monthStr, stepsDelta);
-        updateIfKeyExistsFloat("stats:monthly:" + recordKey + ":distance", monthStr, distanceDelta);
-        updateIfKeyExistsFloat("stats:monthly:" + recordKey + ":calories", monthStr, caloriesDelta);
-    }
-
-    private void updateIfKeyExists(String key, String field, long delta) {
-        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
-            redisTemplate.opsForHash().increment(key, field, delta);
+    public void saveAllBatch(List<HealthLogMessage> messages) {
+        try {
+            healthLogPersister.saveBatchTransactional(messages);
+        } catch (Exception e) {
+            log.warn("Batch processing failed. Switching to single item processing. Error: {}", e.getMessage());
+            fallbackToSingleProcessing(messages);
         }
     }
 
-    private void updateIfKeyExistsFloat(String key, String field, double delta) {
-        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
-            redisTemplate.opsForHash().increment(key, field, delta);
+    public void fallbackToSingleProcessing(List<HealthLogMessage> messages) {
+        int successCount = 0;
+        int failCount = 0;
+
+        for (HealthLogMessage msg : messages) {
+            try {
+                healthLogPersister.saveOne(msg);
+                successCount++;
+            } catch (Exception e) {
+                failCount++;
+                log.error("Failed to save individual log: {}, Error: {}", msg, e.getMessage());
+                sendToDlt(msg, e.getMessage());
+            }
         }
+        log.info("Fallback processing complete. Success: {}, Failed: {}", successCount, failCount);
     }
 
-    private Double normalizeDistance(Double value, String unit) {
-        if (value == null)
-            return 0.0;
-        if ("m".equalsIgnoreCase(unit)) {
-            return value / 1000.0;
+    private void sendToDlt(HealthLogMessage msg, String errorMessage) {
+        try {
+            String json = objectMapper.writeValueAsString(msg);
+            kafkaTemplate.send(DLT_TOPIC, msg.getRecordKey(), json)
+                    .whenComplete((result, ex) -> {
+                        if (ex != null) {
+                            log.error("Failed to send to DLT", ex);
+                        } else {
+                            log.info("Sent to DLT: {}", msg.getRecordKey());
+                        }
+                    });
+        } catch (JsonProcessingException e) {
+            log.error("Failed to serialize message for DLT", e);
         }
-        return value;
-    }
-
-    private Double normalizeCalories(Double value, String unit) {
-        if (value == null)
-            return 0.0;
-        if ("cal".equalsIgnoreCase(unit)) {
-            return value / 1000.0;
-        }
-        return value;
     }
 }

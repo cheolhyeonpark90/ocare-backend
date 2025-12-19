@@ -17,14 +17,22 @@ public class HealthLogConsumer {
     private final ObjectMapper objectMapper;
 
     @KafkaListener(topics = "health-log-topic-v1", groupId = "ocare-group")
-    public void consume(String message) {
-        log.info("Raw MQ Message: {}", message);
-        try {
-            HealthLogMessage logMessage = objectMapper.readValue(message, HealthLogMessage.class);
-            healthLogService.saveHealthLog(logMessage);
-            log.info("Consumed & Saved: {} at {}", logMessage.getRecordKey(), logMessage.getMeasuredAt());
-        } catch (Exception e) {
-            log.error("Failed to consume message", e);
+    public void consume(java.util.List<String> messages) {
+        log.info("Polled batch of {} messages.", messages.size());
+
+        java.util.List<HealthLogMessage> logMessages = new java.util.ArrayList<>();
+
+        for (String message : messages) {
+            try {
+                HealthLogMessage logMessage = objectMapper.readValue(message, HealthLogMessage.class);
+                logMessages.add(logMessage);
+            } catch (Exception e) {
+                log.error("Failed to map message: {}", message, e);
+            }
+        }
+
+        if (!logMessages.isEmpty()) {
+            healthLogService.saveAllBatch(logMessages);
         }
     }
 }

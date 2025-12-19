@@ -24,6 +24,9 @@ public class KafkaConsumerConfig {
     public ConcurrentKafkaListenerContainerFactory<String, String> kafkaListenerContainerFactory() {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
+        factory.setBatchListener(true);
+
+        factory.getContainerProperties().setPollTimeout(100);
 
         FixedBackOff backOff = new FixedBackOff(1000L, 3);
 
