@@ -65,7 +65,7 @@ class HealthLogIntegrationTest {
         when(redisTemplate.hasKey(any())).thenReturn(true);
 
         String json = "{" +
-                "\"recordKey\": \"it-test-key\"," +
+                "\"recordkey\": \"it-test-key\"," +
                 "\"data\": {" +
                 "  \"entries\": [" +
                 "    {" +

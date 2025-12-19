@@ -56,7 +56,7 @@ class KafkaResilienceIntegrationTest {
         doThrow(new RuntimeException("Service Down!")).when(healthLogService).saveAllBatch(any());
 
         String json = "{" +
-                "\"recordKey\": \"dlt-check\"," +
+                "\"recordkey\": \"dlt-check\"," +
                 "\"data\": {" +
                 "  \"entries\": [" +
                 "    {" +

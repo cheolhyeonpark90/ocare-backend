@@ -12,7 +12,8 @@ import lombok.ToString;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HealthLogRequestDto {
 
-    @JsonProperty("recordKey")
+    @jakarta.validation.constraints.NotBlank(message = "recordKey must not be blank")
+    @JsonProperty("recordkey")
     private String recordKey;
 
     private HealthLogDataDto data;

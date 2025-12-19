@@ -22,7 +22,7 @@ class HealthLogParsingTest {
     void parseComplexJson() throws Exception {
         // Given
         String json = "{\n" +
-                "    \"recordKey\" : \"7836887b-b12a-440f...\",\n" +
+                "    \"recordkey\" : \"7836887b-b12a-440f...\",\n" +
                 "    \"data\": {\n" +
                 "        \"entries\": [\n" +
                 "            {\n" +

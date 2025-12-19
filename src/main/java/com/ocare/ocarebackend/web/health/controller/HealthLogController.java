@@ -24,7 +24,8 @@ public class HealthLogController {
     private final HealthLogProducer healthLogProducer;
 
     @PostMapping
-    public ResponseEntity<String> receiveHealthLogs(@RequestBody HealthLogRequestDto request) {
+    public ResponseEntity<String> receiveHealthLogs(
+            @jakarta.validation.Valid @RequestBody HealthLogRequestDto request) {
         if (request.getData() == null || request.getData().getEntries() == null) {
             return ResponseEntity.badRequest().body("No data entries found");
         }

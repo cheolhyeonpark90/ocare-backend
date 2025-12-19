@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 @ToString
 public class HealthLogMessage {
+    @com.fasterxml.jackson.annotation.JsonProperty("recordKey")
     private String recordKey;
     private Integer steps;
 
