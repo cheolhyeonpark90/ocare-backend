@@ -12,7 +12,7 @@ import lombok.ToString;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HealthLogRequestDto {
 
-    @JsonProperty("recordkey")
+    @JsonProperty("recordKey")
     private String recordKey;
 
     private HealthLogDataDto data;

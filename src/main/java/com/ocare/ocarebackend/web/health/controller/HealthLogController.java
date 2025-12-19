@@ -41,11 +41,7 @@ public class HealthLogController {
                     .distanceValue(entry.getDistance() != null ? entry.getDistance().getValue() : 0.0)
                     .distanceUnit(entry.getDistance() != null ? entry.getDistance().getUnit() : null)
                     .caloriesValue(entry.getCalories() != null ? entry.getCalories().getValue() : 0.0)
-                    .caloriesUnit(entry.getCalories() != null ? entry.getCalories().getUnit() : null) // Typo fix in
-                                                                                                      // getter usage if
-                                                                                                      // any, assume
-                                                                                                      // Getter is
-                                                                                                      // standard
+                    .caloriesUnit(entry.getCalories() != null ? entry.getCalories().getUnit() : null)
                     .build();
 
             healthLogProducer.send(message);

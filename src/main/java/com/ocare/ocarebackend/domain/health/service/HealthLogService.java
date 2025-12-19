@@ -16,6 +16,7 @@ import java.util.Optional;
 public class HealthLogService {
 
     private final HealthLogRepository healthLogRepository;
+    private final org.springframework.data.redis.core.StringRedisTemplate redisTemplate;
 
     @Transactional
     public void saveHealthLog(HealthLogMessage msg) {
@@ -25,8 +26,16 @@ public class HealthLogService {
         Optional<HealthLog> existingLog = healthLogRepository.findByRecordKeyAndMeasuredAt(msg.getRecordKey(),
                 msg.getMeasuredAt());
 
+        int stepsDelta;
+        double distanceDelta;
+        double caloriesDelta;
+
         if (existingLog.isPresent()) {
-            existingLog.get().update(msg.getSteps(), normalizedDistance, normalizedCalories);
+            HealthLog log = existingLog.get();
+            stepsDelta = msg.getSteps() - (log.getSteps() != null ? log.getSteps() : 0);
+            distanceDelta = normalizedDistance - (log.getDistance() != null ? log.getDistance() : 0.0);
+            caloriesDelta = normalizedCalories - (log.getCalories() != null ? log.getCalories() : 0.0);
+            log.update(msg.getSteps(), normalizedDistance, normalizedCalories);
         } else {
             HealthLog newLog = HealthLog.builder()
                     .recordKey(msg.getRecordKey())
@@ -36,6 +45,41 @@ public class HealthLogService {
                     .calories(normalizedCalories)
                     .build();
             healthLogRepository.save(newLog);
+
+            stepsDelta = msg.getSteps() != null ? msg.getSteps() : 0;
+            distanceDelta = normalizedDistance;
+            caloriesDelta = normalizedCalories;
+        }
+
+        updateRedisStats(msg.getRecordKey(), msg.getMeasuredAt(), stepsDelta, distanceDelta, caloriesDelta);
+    }
+
+    private void updateRedisStats(String recordKey, java.time.LocalDateTime date, int stepsDelta, double distanceDelta,
+            double caloriesDelta) {
+        String dateStr = date.toLocalDate().toString(); // yyyy-MM-dd
+        String monthStr = date.format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM"));
+
+        // 캐시 정합성 유지: Full Cache가 존재할 때만 델타 업데이트 수행
+
+        updateIfKeyExists("stats:daily:" + recordKey + ":steps", dateStr, stepsDelta);
+        updateIfKeyExistsFloat("stats:daily:" + recordKey + ":distance", dateStr, distanceDelta);
+        updateIfKeyExistsFloat("stats:daily:" + recordKey + ":calories", dateStr, caloriesDelta);
+
+        // Update Monthly Stats
+        updateIfKeyExists("stats:monthly:" + recordKey + ":steps", monthStr, stepsDelta);
+        updateIfKeyExistsFloat("stats:monthly:" + recordKey + ":distance", monthStr, distanceDelta);
+        updateIfKeyExistsFloat("stats:monthly:" + recordKey + ":calories", monthStr, caloriesDelta);
+    }
+
+    private void updateIfKeyExists(String key, String field, long delta) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
+            redisTemplate.opsForHash().increment(key, field, delta);
+        }
+    }
+
+    private void updateIfKeyExistsFloat(String key, String field, double delta) {
+        if (Boolean.TRUE.equals(redisTemplate.hasKey(key))) {
+            redisTemplate.opsForHash().increment(key, field, delta);
         }
     }
 

@@ -14,9 +14,9 @@ public interface HealthLogRepository extends JpaRepository<HealthLog, Long> {
 
         @Query("SELECT " +
                         "FUNCTION('DATE_FORMAT', h.measuredAt, '%Y-%m-%d') as period, " +
-                        "SUM(h.steps) as totalSteps, " +
-                        "SUM(h.distance) as totalDistance, " +
-                        "SUM(h.calories) as totalCalories " +
+                        "SUM(h.steps) as steps, " +
+                        "SUM(h.distance) as distance, " +
+                        "SUM(h.calories) as calories " +
                         "FROM HealthLog h " +
                         "WHERE h.recordKey = :recordKey " +
                         "GROUP BY FUNCTION('DATE_FORMAT', h.measuredAt, '%Y-%m-%d') " +
@@ -25,9 +25,9 @@ public interface HealthLogRepository extends JpaRepository<HealthLog, Long> {
 
         @Query("SELECT " +
                         "FUNCTION('DATE_FORMAT', h.measuredAt, '%Y-%m') as period, " +
-                        "SUM(h.steps) as totalSteps, " +
-                        "SUM(h.distance) as totalDistance, " +
-                        "SUM(h.calories) as totalCalories " +
+                        "SUM(h.steps) as steps, " +
+                        "SUM(h.distance) as distance, " +
+                        "SUM(h.calories) as calories " +
                         "FROM HealthLog h " +
                         "WHERE h.recordKey = :recordKey " +
                         "GROUP BY FUNCTION('DATE_FORMAT', h.measuredAt, '%Y-%m') " +

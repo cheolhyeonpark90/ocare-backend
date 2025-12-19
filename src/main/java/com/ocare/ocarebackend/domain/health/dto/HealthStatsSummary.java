@@ -3,9 +3,9 @@ package com.ocare.ocarebackend.domain.health.dto;
 public interface HealthStatsSummary {
     String getPeriod();
 
-    Long getTotalSteps();
+    Long getSteps();
 
-    Double getTotalDistance();
+    Double getDistance();
 
-    Double getTotalCalories();
+    Double getCalories();
 }

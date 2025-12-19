@@ -14,4 +14,11 @@ public class KafkaTopicConfig {
                 .partitions(1)
                 .build();
     }
+
+    @Bean
+    public NewTopic healthLogDltTopic() {
+        return TopicBuilder.name("health-log-topic-v1.DLT")
+                .partitions(1)
+                .build();
+    }
 }
