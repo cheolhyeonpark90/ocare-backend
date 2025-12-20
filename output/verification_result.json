@@ -1,0 +1,697 @@
+[ {
+  "recordKey" : "e27ba7ef-8bb2-424c-af1d-877e826b7487",
+  "daily" : [ {
+    "period" : "2024-11-14",
+    "steps" : 2079,
+    "distance" : 1.6632,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-15",
+    "steps" : 7901,
+    "distance" : 6.321600000000001,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-16",
+    "steps" : 9144,
+    "distance" : 7.315199999999999,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-17",
+    "steps" : 2292,
+    "distance" : 1.8336,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-18",
+    "steps" : 13695,
+    "distance" : 10.9552,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-19",
+    "steps" : 12227,
+    "distance" : 9.780000000000001,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-20",
+    "steps" : 5379,
+    "distance" : 4.303200000000001,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-21",
+    "steps" : 9495,
+    "distance" : 7.595200000000002,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-22",
+    "steps" : 6521,
+    "distance" : 5.217600000000001,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-23",
+    "steps" : 8243,
+    "distance" : 6.5944,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-24",
+    "steps" : 2353,
+    "distance" : 1.8824,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-25",
+    "steps" : 12570,
+    "distance" : 10.0552,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-26",
+    "steps" : 7679,
+    "distance" : 6.142381151839543,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-27",
+    "steps" : 7338,
+    "distance" : 5.8696188481604565,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-28",
+    "steps" : 7746,
+    "distance" : 6.1975999999999996,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-29",
+    "steps" : 8701,
+    "distance" : 6.9608,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-30",
+    "steps" : 12886,
+    "distance" : 10.308800000000002,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-01",
+    "steps" : 2137,
+    "distance" : 1.7095035680513488,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-02",
+    "steps" : 12055,
+    "distance" : 9.644096431948652,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-03",
+    "steps" : 6740,
+    "distance" : 5.3928,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-04",
+    "steps" : 14756,
+    "distance" : 11.803199999999999,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-05",
+    "steps" : 10798,
+    "distance" : 8.638399999999999,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-06",
+    "steps" : 8657,
+    "distance" : 6.926400000000002,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-07",
+    "steps" : 10269,
+    "distance" : 8.215200000000001,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-08",
+    "steps" : 11654,
+    "distance" : 9.3232,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-09",
+    "steps" : 10906,
+    "distance" : 8.724800000000002,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-10",
+    "steps" : 12889,
+    "distance" : 10.310399999999998,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-11",
+    "steps" : 12712,
+    "distance" : 10.1696,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-12",
+    "steps" : 8803,
+    "distance" : 7.0424000000000015,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-13",
+    "steps" : 8337,
+    "distance" : 6.6704,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-14",
+    "steps" : 5351,
+    "distance" : 4.28,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-15",
+    "steps" : 788,
+    "distance" : 0.6304000000000001,
+    "calories" : 0.0
+  } ],
+  "monthly" : [ {
+    "period" : "2024-11",
+    "steps" : 136249,
+    "distance" : 108.996,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12",
+    "steps" : 136852,
+    "distance" : 109.48079999999996,
+    "calories" : 0.0
+  } ]
+}, {
+  "recordKey" : "3b87c9a4-f983-4168-8f27-85436447bb57",
+  "daily" : [ {
+    "period" : "2024-11-15",
+    "steps" : 9277,
+    "distance" : 6.999550170000001,
+    "calories" : 335.59994038
+  }, {
+    "period" : "2024-11-16",
+    "steps" : 5075,
+    "distance" : 4.263790289500001,
+    "calories" : 199.23999597
+  }, {
+    "period" : "2024-11-17",
+    "steps" : 5179,
+    "distance" : 3.9831101015000003,
+    "calories" : 183.68998309000003
+  }, {
+    "period" : "2024-11-18",
+    "steps" : 13291,
+    "distance" : 10.299719932199997,
+    "calories" : 453.14989535999996
+  }, {
+    "period" : "2024-11-19",
+    "steps" : 8203,
+    "distance" : 6.3277802163,
+    "calories" : 305.6799545900001
+  }, {
+    "period" : "2024-11-20",
+    "steps" : 10055,
+    "distance" : 7.7173402583,
+    "calories" : 341.2599367199999
+  }, {
+    "period" : "2024-11-21",
+    "steps" : 9114,
+    "distance" : 6.932690356399998,
+    "calories" : 327.43995429999995
+  }, {
+    "period" : "2024-11-22",
+    "steps" : 8496,
+    "distance" : 6.540980794,
+    "calories" : 291.91996593
+  }, {
+    "period" : "2024-11-23",
+    "steps" : 5117,
+    "distance" : 3.977679997,
+    "calories" : 194.73996107999997
+  }, {
+    "period" : "2024-11-24",
+    "steps" : 9089,
+    "distance" : 6.969780176499997,
+    "calories" : 329.33995256000003
+  }, {
+    "period" : "2024-11-25",
+    "steps" : 8660,
+    "distance" : 6.698340095500001,
+    "calories" : 308.73994657
+  }, {
+    "period" : "2024-11-26",
+    "steps" : 7930,
+    "distance" : 6.081570334999999,
+    "calories" : 281.51993236000004
+  }, {
+    "period" : "2024-11-27",
+    "steps" : 9566,
+    "distance" : 7.253210087999999,
+    "calories" : 350.05996666999994
+  }, {
+    "period" : "2024-11-28",
+    "steps" : 9769,
+    "distance" : 7.386700178299999,
+    "calories" : 347.76998061
+  }, {
+    "period" : "2024-11-29",
+    "steps" : 8698,
+    "distance" : 6.6835101464,
+    "calories" : 303.98998313000004
+  }, {
+    "period" : "2024-11-30",
+    "steps" : 3114,
+    "distance" : 2.3598000102000007,
+    "calories" : 107.86999478000001
+  }, {
+    "period" : "2024-12-01",
+    "steps" : 6920,
+    "distance" : 5.4873501397,
+    "calories" : 228.81998295000002
+  }, {
+    "period" : "2024-12-02",
+    "steps" : 8194,
+    "distance" : 6.209019938700002,
+    "calories" : 294.77996709
+  }, {
+    "period" : "2024-12-03",
+    "steps" : 11103,
+    "distance" : 8.527580108999999,
+    "calories" : 383.31997070000006
+  }, {
+    "period" : "2024-12-04",
+    "steps" : 8507,
+    "distance" : 6.4470800127,
+    "calories" : 308.81997340999993
+  }, {
+    "period" : "2024-12-05",
+    "steps" : 10329,
+    "distance" : 7.868419959999998,
+    "calories" : 375.12996910000004
+  }, {
+    "period" : "2024-12-06",
+    "steps" : 12300,
+    "distance" : 9.488850725399999,
+    "calories" : 419.25991597
+  }, {
+    "period" : "2024-12-07",
+    "steps" : 5063,
+    "distance" : 4.446939831699999,
+    "calories" : 220.86999703999996
+  }, {
+    "period" : "2024-12-08",
+    "steps" : 5353,
+    "distance" : 4.201040036,
+    "calories" : 183.43999399999998
+  }, {
+    "period" : "2024-12-09",
+    "steps" : 5740,
+    "distance" : 4.4660499731000005,
+    "calories" : 191.12998107999994
+  }, {
+    "period" : "2024-12-10",
+    "steps" : 9249,
+    "distance" : 7.158499967499998,
+    "calories" : 320.29998555
+  }, {
+    "period" : "2024-12-11",
+    "steps" : 10467,
+    "distance" : 8.136169986440004,
+    "calories" : 350.55997265
+  }, {
+    "period" : "2024-12-12",
+    "steps" : 10929,
+    "distance" : 8.391009886099996,
+    "calories" : 372.06995967999984
+  }, {
+    "period" : "2024-12-13",
+    "steps" : 9349,
+    "distance" : 7.218349893300002,
+    "calories" : 314.53997513000013
+  }, {
+    "period" : "2024-12-14",
+    "steps" : 4154,
+    "distance" : 3.1663400222,
+    "calories" : 145.76999243999998
+  }, {
+    "period" : "2024-12-15",
+    "steps" : 3412,
+    "distance" : 2.632960042,
+    "calories" : 116.97999439
+  }, {
+    "period" : "2024-12-16",
+    "steps" : 9482,
+    "distance" : 7.251300001700005,
+    "calories" : 334.3399709900001
+  } ],
+  "monthly" : [ {
+    "period" : "2024-11",
+    "steps" : 130633,
+    "distance" : 100.47555314509998,
+    "calories" : 4662.009344099995
+  }, {
+    "period" : "2024-12",
+    "steps" : 130551,
+    "distance" : 101.09696052553991,
+    "calories" : 4560.129602169995
+  } ]
+}, {
+  "recordKey" : "7836887b-b12a-440f-af0f-851546504b13",
+  "daily" : [ {
+    "period" : "2024-11-15",
+    "steps" : 7243,
+    "distance" : 5.4194896718,
+    "calories" : 289.2099522500001
+  }, {
+    "period" : "2024-11-16",
+    "steps" : 10717,
+    "distance" : 8.020479703399998,
+    "calories" : 425.52994814999994
+  }, {
+    "period" : "2024-11-17",
+    "steps" : 7390,
+    "distance" : 5.6080096589999995,
+    "calories" : 288.48996584
+  }, {
+    "period" : "2024-11-18",
+    "steps" : 7928,
+    "distance" : 6.03404989,
+    "calories" : 316.6999822000001
+  }, {
+    "period" : "2024-11-19",
+    "steps" : 5857,
+    "distance" : 4.4839393130000005,
+    "calories" : 232.44996358
+  }, {
+    "period" : "2024-11-20",
+    "steps" : 7762,
+    "distance" : 5.8415798517000015,
+    "calories" : 310.82996854000004
+  }, {
+    "period" : "2024-11-21",
+    "steps" : 5952,
+    "distance" : 4.4632696545,
+    "calories" : 236.67996438
+  }, {
+    "period" : "2024-11-22",
+    "steps" : 9377,
+    "distance" : 7.141079304100001,
+    "calories" : 372.18993849999987
+  }, {
+    "period" : "2024-11-23",
+    "steps" : 7619,
+    "distance" : 5.7530293665000025,
+    "calories" : 303.10995779999996
+  }, {
+    "period" : "2024-11-24",
+    "steps" : 6285,
+    "distance" : 4.824589850800001,
+    "calories" : 249.50998158
+  }, {
+    "period" : "2024-11-25",
+    "steps" : 6396,
+    "distance" : 4.9175796168,
+    "calories" : 256.80996640000006
+  }, {
+    "period" : "2024-11-26",
+    "steps" : 6815,
+    "distance" : 5.111829808999999,
+    "calories" : 280.82997389999997
+  }, {
+    "period" : "2024-11-27",
+    "steps" : 11522,
+    "distance" : 8.736719577799997,
+    "calories" : 475.34995652
+  }, {
+    "period" : "2024-11-28",
+    "steps" : 9423,
+    "distance" : 7.0484097933,
+    "calories" : 385.3599559299999
+  }, {
+    "period" : "2024-11-29",
+    "steps" : 7773,
+    "distance" : 5.8451199137,
+    "calories" : 307.33998307
+  }, {
+    "period" : "2024-11-30",
+    "steps" : 6409,
+    "distance" : 4.84076981,
+    "calories" : 258.45998019999996
+  }, {
+    "period" : "2024-12-01",
+    "steps" : 6911,
+    "distance" : 5.277709948999998,
+    "calories" : 279.0099989
+  }, {
+    "period" : "2024-12-02",
+    "steps" : 5152,
+    "distance" : 3.9056997249999994,
+    "calories" : 209.00998185
+  }, {
+    "period" : "2024-12-03",
+    "steps" : 9253,
+    "distance" : 6.9904796797,
+    "calories" : 366.0199735
+  }, {
+    "period" : "2024-12-04",
+    "steps" : 11100,
+    "distance" : 8.3271197205,
+    "calories" : 452.9199699
+  }, {
+    "period" : "2024-12-05",
+    "steps" : 13942,
+    "distance" : 10.450879735199997,
+    "calories" : 549.57994807
+  }, {
+    "period" : "2024-12-06",
+    "steps" : 6069,
+    "distance" : 4.600989640999998,
+    "calories" : 244.98995902000001
+  }, {
+    "period" : "2024-12-07",
+    "steps" : 6835,
+    "distance" : 5.1540094107,
+    "calories" : 277.1999707499999
+  }, {
+    "period" : "2024-12-08",
+    "steps" : 2943,
+    "distance" : 2.2430599722999998,
+    "calories" : 115.39999551999996
+  }, {
+    "period" : "2024-12-09",
+    "steps" : 8659,
+    "distance" : 6.6131799444,
+    "calories" : 346.14996662999994
+  }, {
+    "period" : "2024-12-10",
+    "steps" : 6546,
+    "distance" : 4.961749862699999,
+    "calories" : 265.0899784299999
+  }, {
+    "period" : "2024-12-11",
+    "steps" : 7513,
+    "distance" : 5.587589773,
+    "calories" : 302.81996663999996
+  }, {
+    "period" : "2024-12-12",
+    "steps" : 7093,
+    "distance" : 5.414469529,
+    "calories" : 285.36995386999996
+  }, {
+    "period" : "2024-12-13",
+    "steps" : 8094,
+    "distance" : 6.120529602,
+    "calories" : 324.9299517600001
+  }, {
+    "period" : "2024-12-14",
+    "steps" : 4797,
+    "distance" : 3.6570697181000007,
+    "calories" : 191.79998186
+  }, {
+    "period" : "2024-12-15",
+    "steps" : 4245,
+    "distance" : 3.2095400229999997,
+    "calories" : 167.82999819999998
+  }, {
+    "period" : "2024-12-16",
+    "steps" : 6432,
+    "distance" : 4.856479789700001,
+    "calories" : 257.42998511
+  } ],
+  "monthly" : [ {
+    "period" : "2024-11",
+    "steps" : 124468,
+    "distance" : 94.08994478539987,
+    "calories" : 4988.849438840006
+  }, {
+    "period" : "2024-12",
+    "steps" : 115584,
+    "distance" : 87.3705560752999,
+    "calories" : 4635.54958001
+  } ]
+}, {
+  "recordKey" : "7b012e6e-ba2b-49c7-bc2e-473b7b58e72e",
+  "daily" : [ {
+    "period" : "2024-11-14",
+    "steps" : 2234,
+    "distance" : 1.7876393185402357,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-15",
+    "steps" : 6679,
+    "distance" : 5.343131002743456,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-16",
+    "steps" : 5497,
+    "distance" : 4.397250700970247,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-17",
+    "steps" : 4713,
+    "distance" : 3.7704000000000004,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-18",
+    "steps" : 10235,
+    "distance" : 8.18919839170996,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-19",
+    "steps" : 7796,
+    "distance" : 6.237082072137678,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-20",
+    "steps" : 6164,
+    "distance" : 4.9312,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-21",
+    "steps" : 7730,
+    "distance" : 6.184,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-22",
+    "steps" : 9901,
+    "distance" : 7.9208,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-23",
+    "steps" : 8625,
+    "distance" : 6.898016215129281,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-24",
+    "steps" : 4486,
+    "distance" : 3.5876591099845974,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-25",
+    "steps" : 7490,
+    "distance" : 5.992930601855408,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-26",
+    "steps" : 8441,
+    "distance" : 6.753094235814072,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-27",
+    "steps" : 8813,
+    "distance" : 7.0527999999999995,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-28",
+    "steps" : 7833,
+    "distance" : 6.266294664836622,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-29",
+    "steps" : 5897,
+    "distance" : 4.717852652415798,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-11-30",
+    "steps" : 5326,
+    "distance" : 4.260971824348133,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-01",
+    "steps" : 7442,
+    "distance" : 5.9544000000000015,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-02",
+    "steps" : 5907,
+    "distance" : 4.726640830567829,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-03",
+    "steps" : 9562,
+    "distance" : 7.649295229249848,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-04",
+    "steps" : 8166,
+    "distance" : 6.531915005756955,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-05",
+    "steps" : 7242,
+    "distance" : 5.793599999999998,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-06",
+    "steps" : 5954,
+    "distance" : 4.761774192190293,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-07",
+    "steps" : 11767,
+    "distance" : 9.4144377512156,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-08",
+    "steps" : 5752,
+    "distance" : 4.601358784539342,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-09",
+    "steps" : 6466,
+    "distance" : 5.172797278818409,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-10",
+    "steps" : 8041,
+    "distance" : 6.4327999999999985,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-11",
+    "steps" : 8734,
+    "distance" : 6.9874767838361755,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-12",
+    "steps" : 8509,
+    "distance" : 6.807999999999998,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-13",
+    "steps" : 7316,
+    "distance" : 5.852020781507858,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-14",
+    "steps" : 7114,
+    "distance" : 5.69149152146584,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12-15",
+    "steps" : 4005,
+    "distance" : 3.203708478534159,
+    "calories" : 0.0
+  } ],
+  "monthly" : [ {
+    "period" : "2024-11",
+    "steps" : 117860,
+    "distance" : 94.29032079048545,
+    "calories" : 0.0
+  }, {
+    "period" : "2024-12",
+    "steps" : 111977,
+    "distance" : 89.5817166376822,
+    "calories" : 0.0
+  } ]
+} ]
