@@ -115,20 +115,85 @@ erDiagram
 
 ---
 
-## 🚀 How to Run
+## 🚀 How to Run (실행 및 테스트 가이드)
 
-### 1. 인프라 실행 (Docker)
+프로젝트 실행부터 데이터 입력, 통계 확인까지의 전체 과정을 상세히 안내합니다.
+
+### 1. 인프라 실행 (Infrastructure)
+Kafka, Redis, MySQL 컨테이너를 구동합니다.
 ```bash
 docker-compose up -d
 ```
 
-### 2. 애플리케이션 실행
+### 2. 애플리케이션 실행 (Application)
 ```bash
 ./gradlew bootRun
 ```
 
-### 3. 결과 확인 (Data Output)
-과제 수행 결과물인 `Daily` 및 `Monthly` 데이터 조회 결과는 프로젝트 루트의 **[result.html](result.html)** 파일을 열어 즉시 확인하실 수 있습니다.
+### 3. API 사용 예시 (API Usage Flow)
+
+테스트를 위해 터미널에서 `curl` 명령어를 순서대로 실행해 보세요.
+
+#### Step 1: 회원가입 (Sign Up)
+```bash
+curl -X POST http://localhost:8080/api/auth/signup \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "password": "password123",
+    "name": "Test User",
+    "nickname": "Tester"
+  }'
+```
+
+#### Step 2: 로그인 및 토큰 발급 (Login)
+응답 받은 `accessToken`을 복사하여 이후 요청의 Header에 사용합니다.
+```bash
+curl -X POST http://localhost:8080/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "user@example.com",
+    "password": "password123"
+  }'
+```
+
+#### Step 3: 건강 데이터 전송 (Send Health Logs)
+*`YOUR_ACCESS_TOKEN`을 위에서 발급받은 실제 토큰으로 교체하세요.*
+```bash
+curl -X POST http://localhost:8080/api/health/logs \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  -d '{
+    "recordKey": "e27ba7ef-8bb2-424c-af1d-877e826b7487",
+    "data": {
+      "entries": [
+        {
+          "steps": 5000,
+          "distance": {"value": 3.5, "unit": "km"},
+          "calories": {"value": 150.0, "unit": "kcal"},
+          "measuredAt": "2024-11-01T09:00:00"
+        }
+      ]
+    }
+  }'
+```
+
+#### Step 4: 통계 조회 (Get Statistics)
+*`YOUR_ACCESS_TOKEN`을 위에서 발급받은 실제 토큰으로 교체하세요.*
+```bash
+# 월간 통계 조회
+curl -X GET "http://localhost:8080/api/stats/monthly/e27ba7ef-8bb2-424c-af1d-877e826b7487" \
+  -H "Authorization: Bearer YOUR_ACCESS_TOKEN"
+```
+
+> **💡 Pro Tip:** IntelliJ IDEA나 VSCode를 사용 중이라면, `request/` 디렉토리 내의 `.http` 파일들을 열어 바로 실행해 볼 수 있습니다. (`request/health_log_test.http` 등)
 
 ---
-*Created by Cheol-Hyeon Park*
+
+### 3. 결과 확인 (Data Output Information)
+
+대량의 데이터(제공된 Input Files) 처리에 대한 **최종 검증 결과(Daily/Monthly Stats)**는 아래 링크에서 바로 확인하실 수 있습니다.
+
+👉 **[결과 리포트 보기 (Verification Result)](result.md)**
+
+> *위 `result.md` 파일에는 시스템이 처리한 전체 RecordKey에 대한 상세 월간/일간 통계가 포함되어 있습니다.*
